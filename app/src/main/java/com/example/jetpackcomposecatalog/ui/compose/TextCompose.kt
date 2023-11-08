@@ -52,19 +52,18 @@ fun MyText() {
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true, showSystemUi = true)
+//@Preview(showBackground = true, showSystemUi = true)
 @Composable
-fun MyTextField() {
-    var myText by remember { mutableStateOf("") }
+fun MyTextField(name: String, onChangeAction: (String) -> Unit) {
     Column(
         Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text("$myText")
+        Text("$name")
         TextField(
-            value = myText,
-            onValueChange = { myText = it },
+            value = name,
+            onValueChange = { onChangeAction(it) },
             Modifier.fillMaxWidth(),
             label = {
                 Text(
