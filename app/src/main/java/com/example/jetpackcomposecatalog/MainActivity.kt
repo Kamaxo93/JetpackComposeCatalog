@@ -13,6 +13,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.example.jetpackcomposecatalog.ui.compose.MyButton
+import com.example.jetpackcomposecatalog.ui.compose.MyProgress
+import com.example.jetpackcomposecatalog.ui.compose.MyProgressAdvance
+import com.example.jetpackcomposecatalog.ui.compose.MySwitch
 import com.example.jetpackcomposecatalog.ui.compose.MyTextField
 import com.example.jetpackcomposecatalog.ui.theme.JetpackComposeCatalogTheme
 
@@ -27,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MyButton()
+                    MySwitch()
 //                    MyTextField(myText) {
 //                        myText = it
 //                    }
