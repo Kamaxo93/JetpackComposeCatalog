@@ -3,6 +3,7 @@ package com.example.jetpackcomposecatalog
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -12,11 +13,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import com.example.jetpackcomposecatalog.ui.compose.MyBadgeBox
 import com.example.jetpackcomposecatalog.ui.compose.MyButton
+import com.example.jetpackcomposecatalog.ui.compose.MyCard
+import com.example.jetpackcomposecatalog.ui.compose.MyCheckBox
+import com.example.jetpackcomposecatalog.ui.compose.MyDivider
+import com.example.jetpackcomposecatalog.ui.compose.MyDropDownMenu
 import com.example.jetpackcomposecatalog.ui.compose.MyProgress
 import com.example.jetpackcomposecatalog.ui.compose.MyProgressAdvance
 import com.example.jetpackcomposecatalog.ui.compose.MySwitch
+import com.example.jetpackcomposecatalog.ui.compose.MyTextCheckBox
+import com.example.jetpackcomposecatalog.ui.compose.MyTextCheckBoxCompleted
 import com.example.jetpackcomposecatalog.ui.compose.MyTextField
+import com.example.jetpackcomposecatalog.ui.compose.MyTriState
+import com.example.jetpackcomposecatalog.ui.compose.getOptions
 import com.example.jetpackcomposecatalog.ui.theme.JetpackComposeCatalogTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,10 +40,19 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MySwitch()
-//                    MyTextField(myText) {
-//                        myText = it
-//                    }
+                    Column {
+                        MyDropDownMenu()
+//                        getOptions(
+//                            titles = listOf(
+//                                "camacho",
+//                                "carmen",
+//                                "hector",
+//                                "dylan"
+//                            )
+//                        ).forEach {
+//                            MyTextCheckBoxCompleted(checkInfo = it)
+//                        }
+                    }
                 }
             }
         }

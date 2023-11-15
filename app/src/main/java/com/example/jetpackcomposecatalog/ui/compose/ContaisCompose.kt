@@ -14,11 +14,25 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.Badge
+import androidx.compose.material3.BadgedBox
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CardElevation
+import androidx.compose.material3.Divider
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.jetpackcomposecatalog.ui.theme.JetpackComposeCatalogTheme
@@ -46,65 +60,46 @@ fun MyRow() {
             modifier = Modifier
                 .background(Color.Green)
         )
-        Text(
-            text = "camacho",
-            modifier = Modifier
-                .background(Color.Red)
-        )
-        Text(
-            text = "carmen",
-            modifier = Modifier
-                .background(Color.Blue)
-        )
-        Text(
-            text = "hector",
-            modifier = Modifier
-                .background(Color.Cyan)
-        )
-        Text(
-            text = "dylan",
-            modifier = Modifier
-                .background(Color.Green)
-        )
+
     }
 
-}
-
-@Composable
-fun MyColumn() {
-    Column(
-        Modifier
-            .fillMaxSize()
-            .verticalScroll(rememberScrollState()), verticalArrangement = Arrangement.SpaceBetween
-    ) {
-        Text(
-            text = "camacho",
-            modifier = Modifier
-                .background(Color.Red)
-                .fillMaxWidth()
-                .height(100.dp)
-        )
-        Text(
-            text = "carmen",
-            modifier = Modifier
-                .background(Color.Blue)
-                .fillMaxWidth()
-                .height(100.dp)
-        )
-        Text(
-            text = "hector",
-            modifier = Modifier
-                .background(Color.Cyan)
-                .fillMaxWidth()
-                .height(100.dp)
-        )
-        Text(
-            text = "dylan",
-            modifier = Modifier
-                .background(Color.Green)
-                .fillMaxWidth()
-                .height(100.dp)
-        )
+    @Composable
+    fun MyColumn() {
+        Column(
+            Modifier
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState()),
+            verticalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                text = "camacho",
+                modifier = Modifier
+                    .background(Color.Red)
+                    .fillMaxWidth()
+                    .height(100.dp)
+            )
+            Text(
+                text = "carmen",
+                modifier = Modifier
+                    .background(Color.Blue)
+                    .fillMaxWidth()
+                    .height(100.dp)
+            )
+            Text(
+                text = "hector",
+                modifier = Modifier
+                    .background(Color.Cyan)
+                    .fillMaxWidth()
+                    .height(100.dp)
+            )
+            Text(
+                text = "dylan",
+                modifier = Modifier
+                    .background(Color.Green)
+                    .fillMaxWidth()
+                    .height(100.dp)
+            )
+        }
     }
 }
 
@@ -183,6 +178,45 @@ fun ExampleOne() {
 @Composable
 fun MySpace(size: Int, isHorizontal: Boolean) {
     Spacer(modifier = if (isHorizontal) Modifier.width(size.dp) else Modifier.height(size.dp))
+}
+
+@Composable
+fun MyCard() {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 12.dp),
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(12.dp)
+        ) {
+            Text(text = "Prueba card")
+            Text(text = "Prueba card")
+            Text(text = "Prueba card")
+
+        }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MyBadgeBox() {
+    BadgedBox(
+        badge = { Badge(containerColor = Color.Green) { Text("8", color = Color.Blue) } },
+        modifier = Modifier.padding(16.dp),
+    ) {
+        Icon(painter = rememberVectorPainter(image = Icons.Default.Star), contentDescription = "")
+    }
+}
+
+@Composable
+fun MyDivider() {
+    Divider(
+        modifier = Modifier.padding(16.dp),
+    )
 }
 
 @Preview(showBackground = true, showSystemUi = true)
