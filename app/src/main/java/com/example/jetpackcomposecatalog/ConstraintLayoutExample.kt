@@ -72,8 +72,5 @@ fun ConstrainLayoutExampleTwo() {
                 top.linkTo(topGuide)
                 start.linkTo(starGuide)
             })
-
     }
-
-
 }

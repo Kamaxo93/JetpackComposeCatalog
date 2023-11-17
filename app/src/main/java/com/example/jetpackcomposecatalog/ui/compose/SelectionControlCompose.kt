@@ -15,6 +15,7 @@ import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.material3.TriStateCheckbox
@@ -28,7 +29,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.state.ToggleableState
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 
 @Composable
@@ -168,4 +171,18 @@ fun getOptions(titles: List<String>): List<CheckInfo> = titles.map {
         title = it,
         selected = status,
         onChangedSelected = { newStatus -> status = newStatus })
+}
+
+@Composable
+fun MyRadioButton(name: String, selected: String, onChangedSelected: (String) -> Unit) {
+    Row(Modifier.padding(14.dp).fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
+        RadioButton(selected = name == selected, onClick = { onChangedSelected(name) }, Modifier.padding(end = 8.dp))
+        Text(text = name, fontSize = 14.sp)
+    }
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PreviewRadio() {
+    MyRadioButton(name = "casa", selected = "casa", onChangedSelected = {} )
 }
