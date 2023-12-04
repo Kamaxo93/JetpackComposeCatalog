@@ -63,7 +63,7 @@ fun MyCustomDialogComplete(
 
                     )
                     MyDivider()
-                    MyRadioButton(name = "camaho", selected) { selected = it }
+                    MyRadioButton(name = "camacho", selected) { selected = it }
                     MyRadioButton(name = "carmen", selected) { selected = it }
                     MyRadioButton(name = "hector", selected) { selected = it }
                     MyRadioButton(name = "dylan", selected) { selected = it }
