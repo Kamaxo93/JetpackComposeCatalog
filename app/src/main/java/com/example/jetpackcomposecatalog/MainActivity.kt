@@ -39,6 +39,10 @@ import com.example.jetpackcomposecatalog.ui.compose.MyTextCheckBox
 import com.example.jetpackcomposecatalog.ui.compose.MyTextCheckBoxCompleted
 import com.example.jetpackcomposecatalog.ui.compose.MyTextField
 import com.example.jetpackcomposecatalog.ui.compose.MyTriState
+import com.example.jetpackcomposecatalog.ui.compose.SimpleRecyclerView
+import com.example.jetpackcomposecatalog.ui.compose.SuperHeroRecycle
+import com.example.jetpackcomposecatalog.ui.compose.SuperHeroRecycleGrid
+import com.example.jetpackcomposecatalog.ui.compose.SuperHeroRecycleWithControlView
 import com.example.jetpackcomposecatalog.ui.compose.getOptions
 import com.example.jetpackcomposecatalog.ui.theme.JetpackComposeCatalogTheme
 
@@ -53,7 +57,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    var show by remember {
+                    SuperHeroRecycleWithControlView()
+                   /* var show by remember {
                         mutableStateOf(false)
                     }
                     Column(
@@ -77,7 +82,7 @@ class MainActivity : ComponentActivity() {
 //                        ).forEach {
 //                            MyTextCheckBoxCompleted(checkInfo = it)
 //                        }
-                    }
+                    }*/
                 }
             }
         }
