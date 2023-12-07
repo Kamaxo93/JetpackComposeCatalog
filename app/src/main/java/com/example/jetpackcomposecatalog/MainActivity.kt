@@ -42,6 +42,7 @@ import com.example.jetpackcomposecatalog.ui.compose.MyTriState
 import com.example.jetpackcomposecatalog.ui.compose.SimpleRecyclerView
 import com.example.jetpackcomposecatalog.ui.compose.SuperHeroRecycle
 import com.example.jetpackcomposecatalog.ui.compose.SuperHeroRecycleGrid
+import com.example.jetpackcomposecatalog.ui.compose.SuperHeroRecycleSticky
 import com.example.jetpackcomposecatalog.ui.compose.SuperHeroRecycleWithControlView
 import com.example.jetpackcomposecatalog.ui.compose.getOptions
 import com.example.jetpackcomposecatalog.ui.theme.JetpackComposeCatalogTheme
@@ -57,7 +58,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    SuperHeroRecycleWithControlView()
+                    SuperHeroRecycleSticky()
                    /* var show by remember {
                         mutableStateOf(false)
                     }

@@ -2,7 +2,9 @@ package com.example.jetpackcomposecatalog.ui.compose
 
 import android.widget.Toast
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -67,6 +69,39 @@ fun SuperHeroRecycle() {
     }
 }
 
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun SuperHeroRecycleSticky() {
+    val context = LocalContext.current
+    val superHeros: Map<String, List<SuperHero>> = getSuperHero().groupBy { it.publisher }
+
+    LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+
+        superHeros.forEach { (publisher, superhero) ->
+            stickyHeader {
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(Color.Green),
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Text(
+                        text = publisher,
+                        fontSize = 32.sp,
+                        color = Color.White,
+                        modifier = Modifier.align(Alignment.CenterHorizontally)
+                    )
+                }
+            }
+            items(superhero) { superHero ->
+                CardHero(superHero) {
+                    Toast.makeText(context, it.name, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+}
+
 @Composable
 fun SuperHeroRecycleWithControlView() {
     val context = LocalContext.current
@@ -90,13 +125,15 @@ fun SuperHeroRecycleWithControlView() {
             }
         }
         if (showButton) {
-            Button(onClick = {
-                stateCoroutine.launch {
-                    rvState.animateScrollToItem(0)
-                }
-            }, modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(16.dp)) {
+            Button(
+                onClick = {
+                    stateCoroutine.launch {
+                        rvState.animateScrollToItem(0)
+                    }
+                }, modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(16.dp)
+            ) {
                 Text(text = "Button cool")
             }
 
