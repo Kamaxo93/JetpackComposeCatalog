@@ -39,6 +39,7 @@ import com.example.jetpackcomposecatalog.ui.compose.MyTextCheckBox
 import com.example.jetpackcomposecatalog.ui.compose.MyTextCheckBoxCompleted
 import com.example.jetpackcomposecatalog.ui.compose.MyTextField
 import com.example.jetpackcomposecatalog.ui.compose.MyTriState
+import com.example.jetpackcomposecatalog.ui.compose.ScaffoldExample
 import com.example.jetpackcomposecatalog.ui.compose.SimpleRecyclerView
 import com.example.jetpackcomposecatalog.ui.compose.SuperHeroRecycle
 import com.example.jetpackcomposecatalog.ui.compose.SuperHeroRecycleGrid
@@ -58,7 +59,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    SuperHeroRecycleSticky()
+                    ScaffoldExample()
                    /* var show by remember {
                         mutableStateOf(false)
                     }
